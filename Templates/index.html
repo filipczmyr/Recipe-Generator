@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Recipes Generator</title>
+{% endblock %}
+
+{% block body %}
+    <h1 style="text-align: center;">Recipes Generator</h1>
+    <h3 style="text-align: center;">Choose ingredienta for your personallised recipe</h3>
+    
+    <form action="/" method="POST" name="selected_items">
+        <div>
+            {% for item in data %}
+                <div style="float: left; width: 25%; box-sizing: border-box; padding: 0 10px">
+                    <input type="checkbox" name="selected_items" value="{{ item.content }}">
+                    {{ item.content }}
+                </div>
+            {% endfor %}
+            <div style="clear: both;"></div>
+        </div>
+        <input type="submit" value="Search for recepies!">
+    </form>
+    <br>
+    <p>{{ recepie }}</p>
+
+{% endblock %}
